@@ -1,6 +1,6 @@
 /* Color scheme */
 
-background = #F2F2F2
+background = #fff
 link = #FF0066
 
 def shadow:
@@ -54,3 +54,20 @@ th:
 
 /* Layout styles */
 
+div#header:
+    margin: 20px 0
+
+
+div#sidebar:
+    ul:
+        list-style-type: none
+
+        li:
+            margin: 0
+
+
+div#content:
+    min-height: 450px
+
+div#footer:
+    margin: 20px 0
