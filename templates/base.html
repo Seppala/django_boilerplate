@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+
+{% load compress %}
+
+	<head>
+		<meta charset="utf-8"/>
+		<title>{% block title %}My new shiny project{% endblock %}</title>
+		
+		<link rel="stylesheet" type="text/css" media="screen" href="/media/css/html-min.css" />
+		<link rel="stylesheet" type="text/css" media="screen" href="/media/css/styles.css" />
+		<link rel="stylesheet" type="text/css" media="screen" href="/media/css/960.css" />
+        {% compress css %}
+        <link rel="stylesheet" type="text/css" media="screen" href="/media/css/styles.ccss" />
+        {% endcompress %}
+        
+        <link rel="stylesheet" type="text/css" media="screen" href="/media/css/mobile.css" />
+		
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+        
+		{% block extra_head %}
+        {% endblock %}
+	</head>
+
+	<body>
+    
+    <div class="container_12">
+        <div class="grid_12" id="header">
+            <h1>My new project</h1>
+        </div>
+        <div class="clear"></div>
+    </div>
+    
+    <div class="container_12">
+        <div class="grid_12">
+    {% if messages %}
+		<ul class="messages">
+	        {% for message in messages %}
+	            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+	        {% endfor %}
+	    </ul>
+	{% endif %}
+	    </div>
+	    <div class="clear"></div>
+	</div>
+	
+    <div class="container_12">
+        <div class="grid_8" id="content">
+            {% block content %}{% endblock %}
+        </div>
+        <div class="grid_4" id="sidebar">
+            Nav goes here
+        </div>
+        <div class="clear"></div>
+	</div>
+	
+	<div class="container_12">
+	    <div class="grid_12" id="footer">
+	        <p>Copyright 2011</a></p>
+	    </div>
+	</div>
+	</body>
+</html>
